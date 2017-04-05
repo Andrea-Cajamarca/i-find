@@ -4,15 +4,22 @@
  */
 
 body {
- background-image: url("https://68.media.tumblr.com/10012d52c86f7ca76476c52c080409bc/tumblr_nj7kfz0Bcu1sd9evfo1_500.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
   text-align: center;
   font-family: 'Amiko';
-  font-size: 15px;
+  font-style: bold;
 }
 
 #title-page {
   font-size: 50px;
   color: red;
+}
+
+
+
+div #poster, #actors, #plot, #genre, #year., #country, #director, #language {
+  font-size: 10px;
+}
+
+.categories {
+ font-weight: bold;
 }
