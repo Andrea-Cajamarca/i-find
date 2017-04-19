@@ -5,21 +5,33 @@
 
 body {
   text-align: center;
-  font-family: 'Amiko';
+  font-family: 'Amiri', serif;
   font-style: bold;
+  
 }
 
 #title-page {
+  font-family: 'Poller One', cursive;
   font-size: 50px;
   color: red;
 }
 
-
-
-div #poster, #actors, #plot, #genre, #year., #country, #director, #language {
-  font-size: 10px;
+#error {
+  color: red;
 }
 
-.categories {
- font-weight: bold;
+.movieData {
+
+}
+
+.categoryTitle {
+  font-family: 'Poller One', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom:5px;
+  padding-top: 15px;
+}
+
+p {
+ font-size: 16px;
 }

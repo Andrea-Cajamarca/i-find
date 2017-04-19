@@ -8,25 +8,29 @@ idea for Trailers API
 
 $(document).ready(function() {
 ///
-  $("form").hide();
+  $(".movieData").hide();
   $("#button").click(compileMovies); 
   function compileMovies() {
 
     $.getJSON(
-     
-      "https://www.omdbapi.com/?t=" + $("input[name='title']").val() ,
-     
+      "https://www.omdbapi.com/?t=" + $("input[name='title']").val(),
       function(response) {
-        $("form").show();
+        $(".movieData").show();
         console.log(response);
-        $("#poster").html("<img src=" + response.Poster + ">");
-        $("#actors").html(response.Actors);
-        $("#plot").html(response.Plot);
-        $("#genre").html(response.Genre);
-        $("#year").html(response.Year);
-        $("#country").html(response.Country);
-        $("#language").html(response.Language);
-        $("#director").html(response.Director);
+        if (response.Response == "True") {
+          $("#poster").html("<img src=" + response.Poster + ">");
+          $("#actors").html(response.Actors);
+          $("#plot").html(response.Plot);
+          $("#genre").html(response.Genre);
+          $("#year").html(response.Year);
+          $("#country").html(response.Country);
+          $("#language").html(response.Language);
+          $("#director").html(response.Director);
+          $("#error").html("");
+        } else {
+          $(".movieData").hide();
+          $("#error").html(response.Error);
+        }
       });
   }
 });

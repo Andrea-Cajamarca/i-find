@@ -9,6 +9,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
 </head>
 
 <body>
@@ -16,23 +18,31 @@
     Title
     <input type="text" name="title"/>
     <button id="button">Confirm</button>
-    <form action="">
-    <div class= categories id="poster"></div>    
-    Actors
-    <div class= categories id= "actors"></div>
-    Plot
-    <div class= categories id= "plot"></div>
-    Genre
-    <div class= categories id= "genre"></div>
-    Year
-    <div class= categories id= "year"></div>
-    Country
-    <div class= categories id= "country"></div>
-    Director
-    <div class= categories id= "director"></div>
-    Language
-    <div class= categories id="language"></div>
-   </form>
+    <div class="movieData">
+      <p id="poster"></p>    
+      
+      <div class="categoryTitle">Actors</div>
+      <p id= "actors"></p>
+      
+      <div class="categoryTitle">Plot</div>
+      <p id= "plot"></p>
+      
+      <div class="categoryTitle">Genre</div>
+      <p id= "genre"></p>
+      
+      <div class="categoryTitle">Year</div>
+      <p id= "year"></p>
+      
+      <div class="categoryTitle">Country</div>
+      <p id= "country"></p>
+      
+      <div class="categoryTitle">Director</div>
+      <p id= "director"></p>
+      
+      <div class="categoryTitle">Language</div>
+      <p id="language"></p>
+   </div>
+   <div id="error"></div>
 
 </body>
 </html>
