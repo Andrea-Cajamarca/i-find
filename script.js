@@ -13,7 +13,7 @@ $(document).ready(function() {
   function compileMovies() {
 
     $.getJSON(
-      "https://www.omdbapi.com/?t=" + $("input[name='title']").val(),
+      "https://www.omdbapi.com/?type=movie&t=" + $("input[name='title']").val(),
       function(response) {
         $(".movieData").show();
         console.log(response);
