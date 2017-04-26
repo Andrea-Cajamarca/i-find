@@ -40,6 +40,22 @@ $(document).ready(function() {
           $(".movieData").hide();
           $("#error").html(response.Error);
         }
-      });
+      }
+    );
+    $.getJSON(
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + $("input[name='title']").val() + "%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
+      function(response) {
+        $(".movieData").show();
+        console.log(response);
+        if (response.pageInfo.totalResults > 0) {
+          /// collect vid id and inject into Iframe and add the source (videoId
+          /// otherwise, error for no show)
+          $("#poster").html("<img src=" + response.Poster + ">")
+        } else {
+          $(".movieData").hide();
+          $("#error").html(response.Error);
+        }
+      }
+    );
   }
 });
