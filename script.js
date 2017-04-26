@@ -2,9 +2,18 @@
  * script.js
  * - All our useful JS goes here, awesome!
 //
+
+Key: AIzaSyD-QpiDAV0yC_q1rg_fe__MBcCVi9bx73A
+
+New: AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
+
+https://www.googleapis.com/youtube/v3/search?part=snippet&q=&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
+
 idea for Trailers API
 --http://api.traileraddict.com/?film=curious-case-benjamin-button&count=3
 */ 
+
+
 
 $(document).ready(function() {
 ///
