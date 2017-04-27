@@ -3,11 +3,11 @@
  * - All our useful JS goes here, awesome!
 //
 
-Key: AIzaSyD-QpiDAV0yC_q1rg_fe__MBcCVi9bx73A
-
 New: AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
 
 https://www.googleapis.com/youtube/v3/search?part=snippet&q=&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
+
+Error link: https://www.googleapis.com/youtube/v3/search?part=snippet&q=shreeeeeeeeeekkkkk%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
 
 idea for Trailers API
 --http://api.traileraddict.com/?film=curious-case-benjamin-button&count=3
@@ -48,12 +48,15 @@ $(document).ready(function() {
         $(".movieData").show();
         console.log(response);
         if (response.pageInfo.totalResults > 0) {
+          $("iframe").show;
+          $("iframe").html(response.videoId);
+          
           /// collect vid id and inject into Iframe and add the source (videoId
-          /// otherwise, error for no show)
-          $("#poster").html("<img src=" + response.Poster + ">")
+          /// otherwise, error for no show
         } else {
           $(".movieData").hide();
-          $("#error").html(response.Error);
+          $("#error").html(pageInfo.totalResults);
+          $("iframe").hide();
         }
       }
     );
