@@ -46,16 +46,17 @@ $(document).ready(function() {
       "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + $("input[name='title']").val() + "%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
       function(response) {
         $(".movieData").show();
-        console.log(response);
+        var embedURL = "https://www.youtube.com/embed/";        console.log(response);
         if (response.pageInfo.totalResults > 0) {
           $("iframe").show;
           $("iframe").html(response.videoId);
-          
+         // vid id shoukd go next to embed url, use dif. function
+         /// put embed url in a var
           /// collect vid id and inject into Iframe and add the source (videoId
           /// otherwise, error for no show
         } else {
           $(".movieData").hide();
-          $("#error").html(pageInfo.totalResults);
+          $("#error").html(pageInfo.totalResults[]);
           $("iframe").hide();
         }
       }
