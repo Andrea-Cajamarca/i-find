@@ -49,7 +49,7 @@ $(document).ready(function() {
         var embedURL = "https://www.youtube.com/embed/";        console.log(response);
         if (response.pageInfo.totalResults > 0) {
           $("iframe").show;
-          $("iframe").html(response.videoId);
+          $("iframe").append( $("input[name='title']").val() + embedURL,response.videoId);
          // vid id shoukd go next to embed url, use dif. function
          /// put embed url in a var
           /// collect vid id and inject into Iframe and add the source (videoId
