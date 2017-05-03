@@ -9,8 +9,6 @@ https://www.googleapis.com/youtube/v3/search?part=snippet&q=&maxResults=1&key=AI
 
 Error link: https://www.googleapis.com/youtube/v3/search?part=snippet&q=shreeeeeeeeeekkkkk%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
 
-idea for Trailers API
---http://api.traileraddict.com/?film=curious-case-benjamin-button&count=3
 */ 
 
 
@@ -42,14 +40,15 @@ $(document).ready(function() {
         }
       }
     );
-    $.getJSON(
+    /* $.getJSON(
       "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + $("input[name='title']").val() + "%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
       function(response) {
         $(".movieData").show();
         var embedURL = "https://www.youtube.com/embed/";        console.log(response);
         if (response.pageInfo.totalResults > 0) {
           $("iframe").show;
-          $("iframe").append( $("input[name='title']").val() + embedURL,response.videoId);
+          $("iframe").attr(embedURL + $("input[name='title']").val())
+          /// keep this is mind:  ,response.videoId
          // vid id shoukd go next to embed url, use dif. function
          /// put embed url in a var
           /// collect vid id and inject into Iframe and add the source (videoId
@@ -60,6 +59,6 @@ $(document).ready(function() {
           $("iframe").hide();
         }
       }
-    );
-  }
+    ); */
+  } 
 });
