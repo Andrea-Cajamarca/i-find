@@ -21,7 +21,7 @@ body {
 }
 
 .movieData {
-
+  text-align: left;
 }
 
 .categoryTitle {
@@ -35,3 +35,4 @@ body {
 p {
  font-size: 16px;
 }
+
