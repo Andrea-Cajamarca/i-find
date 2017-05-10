@@ -23,7 +23,7 @@ $(document).ready(function() {
       "https://www.omdbapi.com/?type=movie&t=" + $("input[name='title']").val(),
       function(response) {
         $(".movieData").show();
-        console.log(response);
+        //console.log(response);
         if (response.Response == "True") {
           $("#poster").html("<img src=" + response.Poster + ">");
           $("#actors").html(response.Actors);
@@ -40,14 +40,17 @@ $(document).ready(function() {
         }
       }
     );
-    /* $.getJSON(
+     $.getJSON(
       "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + $("input[name='title']").val() + "%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
       function(response) {
         $(".movieData").show();
-        var embedURL = "https://www.youtube.com/embed/";        console.log(response);
+        var embedURL = "https://www.youtube.com/embed/";
+        console.log(JSON.stringify(response));
         if (response.pageInfo.totalResults > 0) {
-          $("iframe").show;
-          $("iframe").attr(embedURL + $("input[name='title']").val())
+        //  $("#trailer").show;
+        //  $("#trailer").src = embedURL + response.items[0].id.videoId;
+          $("#trailer").attr("src", embedURL + response.items[0].id.videoId)
+          console.log(response.items[0].id.videoId);
           /// keep this is mind:  ,response.videoId
          // vid id shoukd go next to embed url, use dif. function
          /// put embed url in a var
@@ -55,10 +58,10 @@ $(document).ready(function() {
           /// otherwise, error for no show
         } else {
           $(".movieData").hide();
-          $("#error").html(pageInfo.totalResults[]);
+          $("#error").html(pageInfo.totalResults);
           $("iframe").hide();
         }
       }
-    ); */
+    ); 
   } 
 });
