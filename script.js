@@ -14,17 +14,19 @@ Error link: https://www.googleapis.com/youtube/v3/search?part=snippet&q=shreeeee
 
 
 $(document).ready(function() {
-///
   $(".movieData").hide();
   $("#button").click(compileMovies); 
   function compileMovies() {
-
+    getMovieInfo();
+  };
+  
+  function getMovieInfo() {
     $.getJSON(
       "https://www.omdbapi.com/?type=movie&t=" + $("input[name='title']").val(),
       function(response) {
-        $(".movieData").show();
-        //console.log(response);
         if (response.Response == "True") {
+          getMovieTrailer();
+          $(".movieData").show();
           $("#poster").html("<img src=" + response.Poster + ">");
           $("#actors").html(response.Actors);
           $("#plot").html(response.Plot);
@@ -37,31 +39,26 @@ $(document).ready(function() {
         } else {
           $(".movieData").hide();
           $("#error").html(response.Error);
+          $("#trailer").attr("src", "");
         }
       }
     );
-     $.getJSON(
-      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + $("input[name='title']").val() + "%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
+  }
+  
+  function getMovieTrailer() {
+    $.getJSON(
+      "https://www.googleapis.com/youtube/v3/search?part=snippet" +
+        "&q=" + $("input[name='title']").val() + "%20movie%20official%20trailer" +
+        "&maxResults=1" + 
+        "&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw",
       function(response) {
-        $(".movieData").show();
         var embedURL = "https://www.youtube.com/embed/";
-        console.log(JSON.stringify(response));
         if (response.pageInfo.totalResults > 0) {
-        //  $("#trailer").show;
-        //  $("#trailer").src = embedURL + response.items[0].id.videoId;
-          $("#trailer").attr("src", embedURL + response.items[0].id.videoId)
-          console.log(response.items[0].id.videoId);
-          /// keep this is mind:  ,response.videoId
-         // vid id shoukd go next to embed url, use dif. function
-         /// put embed url in a var
-          /// collect vid id and inject into Iframe and add the source (videoId
-          /// otherwise, error for no show
+          $("#trailer").attr("src", embedURL + response.items[0].id.videoId);
         } else {
-          $(".movieData").hide();
-          $("#error").html(pageInfo.totalResults);
-          $("iframe").hide();
+          $("#trailer").attr("src", "");
         }
       }
-    ); 
-  } 
+    );  
+  }
 });
