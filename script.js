@@ -56,6 +56,7 @@ $(document).ready(function() {
         if (response.pageInfo.totalResults > 0) {
           $("#trailer").attr("src", embedURL + response.items[0].id.videoId);
         } else {
+          // find out how to add year of production with the title input
           $("#trailer").attr("src", "");
         }
       }
