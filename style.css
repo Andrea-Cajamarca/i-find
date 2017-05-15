@@ -25,7 +25,7 @@ body {
   color: red;
 }
 
-.movieData {
+#poster {
   text-align: left;
 }
 
@@ -35,9 +35,11 @@ body {
   font-weight: bold;
   padding-bottom:5px;
   padding-top: 15px;
+  text-align: right;
 }
 
 p {
  font-size: 16px;
+ text-align: right;
 }
 
