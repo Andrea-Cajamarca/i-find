@@ -8,7 +8,6 @@ body {
   text-align: center;
   font-family: 'Amiri', serif;
   font-style: bold;
-  
 }
 
 #title-page {
@@ -35,11 +34,15 @@ body {
   font-weight: bold;
   padding-bottom:5px;
   padding-top: 15px;
-  text-align: right;
+  
 }
 
 p {
- font-size: 16px;
- text-align: right;
+  text-align: center;
+  font-size: 16px;
+  
 }
 
+#trailer {
+  text-align: right;
+}
