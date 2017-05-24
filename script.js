@@ -9,6 +9,8 @@ https://www.googleapis.com/youtube/v3/search?part=snippet&q=&maxResults=1&key=AI
 
 Error link: https://www.googleapis.com/youtube/v3/search?part=snippet&q=shreeeeeeeeeekkkkk%20official%20trailer%20&maxResults=1&key=AIzaSyCaZI5sfmIoRlA5OgiYRpy_EdMgkpSlWZw
 
+The Movie DB Api Link: https://api.themoviedb.org/3/movie/550?api_key=0d02dd329cdb155d5842855bfb30bee0
+
 */ 
 
 
