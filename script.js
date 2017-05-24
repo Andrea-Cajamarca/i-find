@@ -17,6 +17,8 @@ EXAMPLE FOR ERROR: https://api.themoviedb.org/3/search/movie?query=shreeeekk&api
 
 $(document).ready(function() {
   $(".movieData").hide();
+   var dictionary = genreDictionary();
+  
   $("#button").click(compileMovies); 
   function compileMovies() {
     getMovieInfo();
@@ -30,15 +32,15 @@ $(document).ready(function() {
         console.log(response);
         if (response.total_results > 0) {
           getMovieTrailer();
+          var genres = getGenres(response.results[0].genre_ids);
           $(".movieData").show();
           $("#poster").html("<img src='https://image.tmdb.org/t/p/w500/" + response.results[0].poster_path + "'>");
-          $("#popularity").html(response.results[0].popularity);
-          console.log(response);
-          $("#plot").html(response.Plot);
-          $("#genre").html(response.Genre);
-          $("#year").html(response.Year);
-          $("#country").html(response.Country);
-          $("#language").html(response.Language);
+          $("#plot").html(response.results[0].overview);
+          $("#popularity").html(response.results[0].popularity + " out of 10");
+          $("#genre").html(genres);
+          $("#release-date").html(response.results[0].release_date);
+          //$("#country").html(response.Country);
+          $("#language").html(response.results[0].original_language);
           $("#director").html(response.Director);
           $("#error").html("");
         } else {
@@ -67,4 +69,30 @@ $(document).ready(function() {
       }
     );  
   }
+  function genreDictionary() {
+    var result = {};
+    $.getJSON(
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=0d02dd329cdb155d5842855bfb30bee0",
+      function(response) {
+        console.log(response);
+        var genreArray = response.genres;
+        for (var i=0; i<genreArray.length; i++) {
+          result[genreArray[i].id] = genreArray[i].name;
+        }
+      }
+    );
+    return result;
+  }
+  
+  
+  function getGenres(ids) {
+   
+    var result = [];
+    for (var i=0; i<ids.length; i++) {
+      result.push(dictionary[ids[i]]);
+      console.log(ids[i]);
+    }
+    return result.join(", ");
+  }
 });
+
