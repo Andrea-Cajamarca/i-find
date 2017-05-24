@@ -9,6 +9,8 @@ The Movie DB Api Link: https://api.themoviedb.org/3/movie/550?api_key=0d02dd329c
 
 GOOD EXAMPLE: https://api.themoviedb.org/3/search/movie?query=shrek&api_key=0d02dd329cdb155d5842855bfb30bee0
 
+EXAMPLE FOR ERROR: https://api.themoviedb.org/3/search/movie?query=shreeeekk&api_key=0d02dd329cdb155d5842855bfb30bee0
+
 */ 
 
 
@@ -21,14 +23,17 @@ $(document).ready(function() {
   };
   
   function getMovieInfo() {
+    var title= $("input[name='title']").val();
     $.getJSON(
-      "https://www.omdbapi.com/?type=movie&t=" + $("input[name='title']").val(),
+      "https://api.themoviedb.org/3/search/movie?query=" + title + "&api_key=0d02dd329cdb155d5842855bfb30bee0",
       function(response) {
-        if (response.Response == "True") {
+        console.log(response);
+        if (response.total_results > 0) {
           getMovieTrailer();
           $(".movieData").show();
-          $("#poster").html("<img src=" + response.Poster + ">");
-          $("#actors").html(response.Actors);
+          $("#poster").html("<img src='https://image.tmdb.org/t/p/w500/" + response.results[0].poster_path + "'>");
+          $("#popularity").html(response.results[0].popularity);
+          console.log(response);
           $("#plot").html(response.Plot);
           $("#genre").html(response.Genre);
           $("#year").html(response.Year);
