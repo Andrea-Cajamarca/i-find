@@ -11,6 +11,8 @@ GOOD EXAMPLE: https://api.themoviedb.org/3/search/movie?query=shrek&api_key=0d02
 
 EXAMPLE FOR ERROR: https://api.themoviedb.org/3/search/movie?query=shreeeekk&api_key=0d02dd329cdb155d5842855bfb30bee0
 
+THE LOCATION OF THE FUNCTION: https://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css
+
 */ 
 
 
@@ -63,7 +65,6 @@ $(document).ready(function() {
         if (response.pageInfo.totalResults > 0) {
           $("#trailer").attr("src", embedURL + response.items[0].id.videoId);
         } else {
-          // find out how to add year of production with the title input
           $("#trailer").attr("src", "");
         }
       }
