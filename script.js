@@ -20,15 +20,10 @@ THE LOCATION OF THE FUNCTION: https://stackoverflow.com/questions/1987524/turn-a
 $(document).ready(function() {
   $(".movieData").hide();
    var dictionary = genreDictionary();
-   
-   /* $("#id_of_textbox").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#id_of_button").click();
-    }
-}); */
   
-  $("#button").click(compileMovies); 
-  function compileMovies() {
+  $("form").submit(compileMovies); 
+  function compileMovies(event) {
+    event.preventDefault();
     getMovieInfo();
   };
   
