@@ -1,6 +1,4 @@
 /**
- * style.css
- * - Add any styles you want here!
  https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/
  */
 
@@ -25,7 +23,7 @@ body {
 }
 
 #poster {
-  text-align: left;
+  text-align: center;
 }
 
 .categoryTitle {
@@ -46,3 +44,13 @@ p {
 #trailer {
   text-align: right;
 }
+
+/*span.stars, span.stars span {
+    display: block;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+} */
