@@ -21,7 +21,7 @@ $(document).ready(function() {
   $(".movieData").hide();
    var dictionary = genreDictionary();
   
-  $("form").submit(compileMovies); 
+  $("form").submit(compileMovies);
   function compileMovies(event) {
     event.preventDefault();
     getMovieInfo();
